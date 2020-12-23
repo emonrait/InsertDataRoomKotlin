@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/holo_blue_bright"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Welcome To My Android World"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/addBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:padding="10dp"
+        android:src="@drawable/ic_add" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Please Click the Add icon to Open Neww Aactivity"
+        android:textStyle="bold" />
+
+</LinearLayout>
