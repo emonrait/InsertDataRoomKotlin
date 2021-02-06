@@ -1,5 +1,6 @@
 package com.example.notebook.data
 
+import android.graphics.Bitmap
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.Index
@@ -20,6 +21,7 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val noteTitle: String,
-    val noteDescription: String
+    val noteDescription: String,
+    val profilePhoto: Bitmap
 
 ) : Parcelable

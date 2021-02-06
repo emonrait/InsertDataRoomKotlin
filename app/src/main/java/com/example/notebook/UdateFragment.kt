@@ -1,6 +1,8 @@
 package com.example.notebook
 
 import android.content.DialogInterface
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +11,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import coil.ImageLoader
+import coil.request.ImageRequest
+import coil.request.SuccessResult
 import com.example.notebook.data.User
 import com.example.notebook.data.UserViewModel
 import kotlinx.android.synthetic.main.fragment_udate.*
 import kotlinx.android.synthetic.main.fragment_udate.view.*
+import kotlinx.coroutines.launch
 
 
 class UdateFragment : Fragment() {
@@ -74,8 +81,11 @@ class UdateFragment : Fragment() {
         val noteDescription = updatetextInputEditTextNoteDescription.text.toString()
 
         if (inputCheck(noteTitle, noteDescription)) {
-            val updateUser = User(id, noteTitle, noteDescription)
-            muserViewModel.updateUser(updateUser)
+            lifecycleScope.launch {
+                val updateUser = User(id, noteTitle, noteDescription, getBitmap())
+                muserViewModel.updateUser(updateUser)
+            }
+
             Toast.makeText(requireContext(), "Update Successful", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_udateFragment_to_listFragment)
         } else {
@@ -88,6 +98,17 @@ class UdateFragment : Fragment() {
 
 
     }
+
+    private suspend fun getBitmap(): Bitmap {
+        val loading = ImageLoader(requireContext())
+        val request = ImageRequest.Builder(requireContext())
+            .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
+            .build()
+
+        val result = (loading.execute(request) as SuccessResult).drawable
+        return (result as BitmapDrawable).bitmap
+    }
+
 
     private fun inputCheck(
         noteTitle: String,
