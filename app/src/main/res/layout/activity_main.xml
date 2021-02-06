@@ -23,9 +23,19 @@
         android:id="@+id/addBtn"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:background="@android:color/holo_green_light"
         android:padding="10dp"
         android:src="@drawable/ic_add" />
+
+    <ImageButton
+        android:id="@+id/showBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@android:color/holo_green_light"
+        android:padding="10dp"
+        android:src="@drawable/ic_show" />
 
     <TextView
         android:layout_width="match_parent"

@@ -15,4 +15,13 @@ interface UserDao {
     @Update
     suspend fun updateUser(user: User)
 
+    @Delete
+    suspend fun deleteUser(user: User)
+
+    @Query("DELETE FROM user_table")
+    suspend fun deleteAllUser()
+
+    @Query("SELECT * FROM user_table WHERE id = :id AND noteTitle= :noteTitle")
+    fun doLogin(id: Int, noteTitle: String): Array<User>
+
 }

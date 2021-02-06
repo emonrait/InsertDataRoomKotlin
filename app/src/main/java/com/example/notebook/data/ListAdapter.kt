@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     private var userlist = emptyList<User>()
 
-
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }

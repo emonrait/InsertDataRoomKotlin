@@ -16,4 +16,17 @@ class UserRepository(private val userDao: UserDao) {
 
     }
 
+    suspend fun deleteUser(user: User) {
+        userDao.deleteUser(user)
+
+    }
+
+    suspend fun deleteAllUser() {
+        userDao.deleteAllUser()
+    }
+
+    suspend fun dologin(id: Int, noteTitle: String) {
+        userDao.doLogin(id, noteTitle)
+    }
+
 }

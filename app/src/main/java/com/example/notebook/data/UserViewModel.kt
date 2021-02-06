@@ -15,21 +15,37 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         val userDao = UserDatabase.getDatabase(application).userDao()
         repository = UserRepository(userDao)
         readAllData = repository.readAllData
-
     }
 
     fun addUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addUser(user)
-
         }
     }
 
     fun updateUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateUser(user)
-
         }
     }
+
+    fun deleteUser(user: User) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteUser(user)
+        }
+    }
+
+    fun deleteAllUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllUser()
+        }
+    }
+
+    fun dologin(id: Int, noteTitle: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.dologin(id, noteTitle)
+        }
+    }
+
 
 }

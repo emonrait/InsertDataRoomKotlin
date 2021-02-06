@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_item"
-    app:startDestination="@id/registrationFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.example.notebook.RegistrationFragment"
-        android:label="fragment_registration"
+        android:label="Registration"
         tools:layout="@layout/fragment_registration">
+
         <action
             android:id="@+id/action_registrationFragment_to_listFragment"
             app:destination="@id/listFragment" />
@@ -17,11 +18,14 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.notebook.ListFragment"
-        android:label="fragment_list"
+        android:label="All List"
         tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_udateFragment"
             app:destination="@id/udateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
     </fragment>
     <fragment
         android:id="@+id/udateFragment"
