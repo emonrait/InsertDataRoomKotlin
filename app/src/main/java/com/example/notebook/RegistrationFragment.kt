@@ -65,9 +65,11 @@ class RegistrationFragment : Fragment() {
     }
 
     private suspend fun getBitmap(): Bitmap {
+        val datapath =
+            "https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4"
         val loading = ImageLoader(requireContext())
         val request = ImageRequest.Builder(requireContext())
-            .data("https://avatars3.githubusercontent.com/u/14994036?s=400&u=2832879700f03d4b37ae1c09645352a352b9d2d0&v=4")
+            .data(datapath)
             .build()
 
         val result = (loading.execute(request) as SuccessResult).drawable
