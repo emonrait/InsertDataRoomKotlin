@@ -9,7 +9,7 @@
         android:id="@+id/registrationFragment"
         android:name="com.example.notebook.RegistrationFragment"
         android:label="fragment_registration"
-        tools:layout="@layout/fragment_registration" >
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_listFragment"
             app:destination="@id/listFragment" />
@@ -18,5 +18,21 @@
         android:id="@+id/listFragment"
         android:name="com.example.notebook.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_udateFragment"
+            app:destination="@id/udateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/udateFragment"
+        android:name="com.example.notebook.UdateFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_udate">
+        <action
+            android:id="@+id/action_udateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.notebook.data.User" />
+    </fragment>
 </navigation>

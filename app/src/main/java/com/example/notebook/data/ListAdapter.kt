@@ -3,7 +3,9 @@ package com.example.notebook.data
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notebook.ListFragmentDirections
 import com.example.notebook.R
 import kotlinx.android.synthetic.main.list_item.view.*
 
@@ -27,6 +29,12 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.id_txt.text = currentItem.id.toString()
         holder.itemView.noteTitle_txt.text = currentItem.noteTitle.toString()
         holder.itemView.noteDescription_txt.text = currentItem.noteDescription.toString()
+
+        holder.itemView.rowLayout.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+
+        }
 
     }
 
