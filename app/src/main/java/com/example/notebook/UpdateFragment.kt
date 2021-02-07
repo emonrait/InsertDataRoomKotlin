@@ -1,6 +1,5 @@
 package com.example.notebook
 
-import android.content.DialogInterface
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
@@ -15,31 +14,37 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
+import coil.load
 import coil.request.ImageRequest
 import coil.request.SuccessResult
 import com.example.notebook.data.User
 import com.example.notebook.data.UserViewModel
-import kotlinx.android.synthetic.main.fragment_udate.*
-import kotlinx.android.synthetic.main.fragment_udate.view.*
+import com.example.notebook.data.getProgressDrawable
+import com.example.notebook.data.loadImage
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_update.*
+import kotlinx.android.synthetic.main.fragment_update.view.*
 import kotlinx.coroutines.launch
 
 
-class UdateFragment : Fragment() {
+class UpdateFragment : Fragment() {
 
     private lateinit var muserViewModel: UserViewModel
-    private val args by navArgs<UdateFragmentArgs>()
+    private val args by navArgs<UpdateFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_udate, container, false)
+        val view = inflater.inflate(R.layout.fragment_update, container, false)
 
         muserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         view.UpdatetextInputEditTextNoteTitle.setText(args.currentUser.noteTitle)
         view.updatetextInputEditTextNoteDescription.setText(args.currentUser.noteDescription)
+        view.updateImage.load(args.currentUser.profilePhoto)
+
 
         view.btnUpdate.setOnClickListener {
             updateDatatoDatabase()

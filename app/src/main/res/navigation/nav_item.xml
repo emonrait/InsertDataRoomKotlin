@@ -29,9 +29,9 @@
     </fragment>
     <fragment
         android:id="@+id/udateFragment"
-        android:name="com.example.notebook.UdateFragment"
+        android:name="com.example.notebook.UpdateFragment"
         android:label="Update"
-        tools:layout="@layout/fragment_udate">
+        tools:layout="@layout/fragment_update">
         <action
             android:id="@+id/action_udateFragment_to_listFragment"
             app:destination="@id/listFragment" />

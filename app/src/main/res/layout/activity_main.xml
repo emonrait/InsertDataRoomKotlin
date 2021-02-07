@@ -19,6 +19,17 @@
         android:textSize="18dp"
         android:textStyle="bold" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/showImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:src="@drawable/ic_photo"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="3dp" />
+
     <ImageButton
         android:id="@+id/addBtn"
         android:layout_width="120dp"
